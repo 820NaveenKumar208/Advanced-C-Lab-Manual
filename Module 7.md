@@ -1,3 +1,5 @@
+# NAME : NAVEEN KUMAR T
+# REG NO : 212223220067
 EXP NO:1 C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE VACCINE.
 
 Aim:
@@ -14,10 +16,182 @@ Else
 5.	Print details (e.age, e.n)
 6.	Return 0
  
-Program:
+## Program 1 C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE VACCINE :
 
-//type your code here
+```
+#include <stdio.h>
 
+struct eligible {
+    int age;
+    char name[50];
+};
+
+int main() {
+    int n, i;
+    printf("Enter number of persons: ");
+    scanf("%d", &n);
+
+    struct eligible e[n];
+
+    for (i = 0; i < n; i++) {
+        printf("\nEnter name: ");
+        scanf("%s", e[i].name);
+        printf("Enter age: ");
+        scanf("%d", &e[i].age);
+
+        printf("\nDetails of %s:\n", e[i].name);
+        printf("Age: %d\n", e[i].age);
+        if (e[i].age > 6)
+            printf("Vaccine Eligibility: Yes\n");
+        else
+            printf("Vaccine Eligibility: No\n");
+    }
+    return 0;
+}
+```
+## OUTPUT :
+<img width="1839" height="712" alt="Screenshot 2025-08-18 083210" src="https://github.com/user-attachments/assets/57582107-3a7d-4585-9df3-f78b1e4c2f89" />
+
+## PROGRAM 2 PASSING STRUCTURE AS FUNCTION ARGUMENTS AND RETURNING STRUCTURE :
+```
+#include <stdio.h>
+
+struct numbers {
+    int a, b;
+};
+
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
+
+int main() {
+    struct numbers n1, res;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &n1.a, &n1.b);
+
+    res = add(n1);
+
+    printf("Sum = %d\n", res.a);
+    return 0;
+}
+```
+## OUTPUT :
+<img width="1830" height="717" alt="Screenshot 2025-08-18 083456" src="https://github.com/user-attachments/assets/6e7083c2-2c70-4dd8-9a76-e1b1b175f167" />
+
+## PROGRAM 3 : READ A FILE NAME FROM USER AND WRITE USING FOPEN 
+```
+#include <stdio.h>
+
+int main() {
+    FILE *p;
+    char name[50];
+
+    printf("Enter file name: ");
+    scanf("%s", name);
+
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error in creating file.\n");
+        return 1;
+    }
+
+    printf("File '%s' created and opened successfully.\n", name);
+    fclose(p);
+    printf("File closed successfully.\n");
+
+    return 0;
+}
+```
+## OUTPUT :
+<img width="1610" height="634" alt="Screenshot 2025-08-18 083828" src="https://github.com/user-attachments/assets/4e012155-13fd-4e80-9916-03c7ecab9bb3" />
+
+## PROGRAM 4 : READ FILE NAME, WRITE AND INSERT TEXT
+```
+#include <stdio.h>
+
+int main() {
+    FILE *p;
+    char name[50], text[100];
+    int num, i;
+
+    printf("Enter file name: ");
+    scanf("%s", name);
+
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    printf("Enter number of lines: ");
+    scanf("%d", &num);
+
+    printf("Enter text lines:\n");
+    for (i = 0; i < num; i++) {
+        scanf(" %[^\n]", text);
+        fputs(text, p);
+        fputs("\n", p);
+    }
+
+    fclose(p);
+    printf("Data added successfully to '%s'\n", name);
+
+    return 0;
+}
+```
+## OUTPUT :
+<img width="1829" height="711" alt="Screenshot 2025-08-18 090912" src="https://github.com/user-attachments/assets/333c8cd2-7ff3-4269-ad18-fba4fd135db0" />
+
+## PROGRAM 5: DISPLAY STUDENT DETAILS USING STRUCTURE (Dynamic Memory Allocation)
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+struct subject {
+    char name[50];
+    int marks;
+};
+
+int main() {
+    int n, i;
+    struct subject *s;
+
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+
+    s = (struct subject*) malloc(n * sizeof(struct subject));
+    if (s == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; i++) {
+        printf("Enter subject name: ");
+        scanf("%s", s[i].name);
+        printf("Enter marks: ");
+        scanf("%d", &s[i].marks);
+    }
+
+    printf("\nSubject Details:\n");
+    for (i = 0; i < n; i++) {
+        printf("%s - %d\n", s[i].name, s[i].marks);
+    }
+
+    free(s);
+    return 0;
+}
+```
+## OUTPUT:
+<img width="1833" height="715" alt="Screenshot 2025-08-18 091107" src="https://github.com/user-attachments/assets/dd1e1224-4ce2-43e8-83bf-3ec5645962e1" />
+
+
+
+
+
+ 
 
 Output:
 
